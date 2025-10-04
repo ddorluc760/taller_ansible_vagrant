@@ -25,4 +25,12 @@
     group: root
     mode: '0644'
   notify:
-    - 
+    - restart apache2
+
+- name: "Añadir comentario de prueba en Apache config"
+  lineinfile:
+    path: /etc/apache2/ports.conf
+    line: "# Prueba de handler, modificación de receta"
+    state: present
+  notify:
+    - restart apache2
